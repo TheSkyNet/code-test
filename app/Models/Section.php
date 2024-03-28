@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * @property StoreProduct $products
+ */
 class Section extends Model
 {
-    use HasFactory;
-
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -19,7 +20,8 @@ class Section extends Model
             'store_product_id',
             'id',
             'id'
-        )->withPivot('position')
-        ->orderBy('position', 'ASC');
+        )
+        ->withPivot('position');
+      /*  $todo this is ambiguous ->orderBy('position', 'ASC');*/
     }
 }

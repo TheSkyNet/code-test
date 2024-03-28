@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * @property Artist $artist
+ */
 class StoreProduct extends Model
 {
-    use HasFactory;
-
     public $table = 'store_products';
 
     public function sections(): BelongsToMany
